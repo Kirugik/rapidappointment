@@ -12,8 +12,8 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Name</th>
+                    <!-- <th>Last Name</th> -->
                     <th>Gender</th>
                     <th>Department</th>
                     <th>Specialty</th>
@@ -26,8 +26,8 @@
                 {% for doctor in doctors %}
                 <tr>
                     <td>{{doctor.id}}</td>
-                    <td>{{doctor.first_name}}</td>
-                    <td>{{doctor.last_name}}</td>
+                    <td>Dr. {{doctor.first_Name}}</td>
+                    <!-- <td>{{doctor.last_Name}}</td> -->
                     <td>{{doctor.gender}}</td>
                     <td>{{doctor.department}}</td>
                     <td>{{doctor.specialty}}</td>

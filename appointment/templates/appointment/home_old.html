@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<style>
+    body{
+        background-color: #cccccc;
+    }
+</style>
+
+
+
+{% block content %}
+{% include 'navbar.html' %} 
+<div id="carousel-slide" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/doc2.jpg' %}" class="d-block w-100" alt="">
+            <div class="carousel-caption text-white">
+                <div class="background-1">
+                    <h2 style="color: #E30B5D;">See Our Doctors Conveniently and Easily</h2> 
+                
+                    <a href="{% url 'request-appointment' %}"><button class="btn" style="background-color: #0da2ff; color: #ffffff; font-size: 25px; margin-top: 50px;">Book An Appointment Now!</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+<!-- -------------------------------------Introduction section--------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------ --> 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="#" alt="">
+        </div>
+
+        <div class="col-md4" id="introduction"> 
+            <h1>
+                <h4 class="text-center" style="color: #E30B5D;">Welcome to the Rapid Appoint</h4>
+            </h1>
+            <p>
+                <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices tincidunt arcu non sodales neque sodales. At quis risus sed vulputate odio ut enim blandit. Cras semper auctor neque vitae tempus quam pellentesque nec. Aenean vel elit scelerisque mauris. Neque viverra justo nec ultrices dui sapien. Nullam non nisi est sit amet facilisis magna etiam. Tincidunt lobortis feugiat vivamus at augue eget arcu.</h6> 
+            </p>
+            <div class="home-images d-flex ml-auto">
+                <img src="{% static 'images/doc1.jpg' %}" alt="" style="width: 400px; height: 300px; margin-right: 10px;">
+                <img src="{% static 'images/doc2.jpg' %}" alt="" style="width: 400px; height: 300px; margin-right: 10px;">
+                <img src="{% static 'images/doc3.jpg' %}" alt="" style="width: 400px; height: 300px; margin-right: 10px;"> 
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+<!-- -------------------------------------Medical Services------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------ --> 
+<div class="container-fluid" id="services" style="margin-top: 40px;">
+    <div class="row">
+        <div class="col-md-12"> 
+            <h3 class="text-center text-primary">Our Services</h3>
+            <!-- <h5 class="text-center" style="margin-top: 20px;">Medical Services</h5>  -->
+        </div> 
+    </div> 
+</div>
+
+<div class="container-fluid">
+    <div class="row owl-carousel owl-theme">
+        <div class="col-md-4">
+            <div class="card-img">
+                <img src="{% static 'images/ortho.jpeg' %}" alt="" style="margin-left:auto; margin-right:auto; width: 70%; height: 250px; padding-top: 5px;">
+            </div>
+            <div class="card-body">
+                <p><strong>Orthopaedic and Surgery</strong></p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolorum beatae fugiat deleniti perferendis illum itaque et culpa voluptatem corporis ratione suscipit in quae, eligendi velit adipisci rem quasi?</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-img">
+                <img src="{% static 'images/radio.jpeg' %}" alt="" style="margin-left:auto; margin-right:auto; width: 70%; height: 250px; padding-top: 5px;">
+            </div>
+            <div class="card-body">
+                <p><strong>Radiology</strong></p>
+                <p>Laudantium dolorum beatae fugiat deleniti perferendis illum itaque et culpa voluptatem corporis ratione suscipit in quae, eligendi velit adipisci rem quasi?</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-img">
+                <img src="{% static 'images/obste.jpeg' %}" alt="" style="margin-left:auto; margin-right:auto; width: 70%; height: 250px; padding-top: 5px;">
+            </div>
+            <div class="card-body">
+                <p><strong>Gynecologist and Obstetrician</strong></p>
+                <p>Laudantium dolorum beatae fugiat deleniti perferendis illum itaque et culpa voluptatem corporis ratione suscipit in quae, eligendi velit adipisci rem quasi?</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-img">
+                <img src="{% static 'images/paediatrics.jpeg' %}" alt="" style="margin-left:auto; margin-right:auto; width: 70%; height: 250px; padding-top: 5px;">
+            </div>
+            <div class="card-body">
+                <p><strong>Paediatrics</strong></p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolorum beatae fugiat deleniti.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-img">
+                <img src="{% static 'images/uro.jpeg' %}" alt="" style="margin-left:auto; margin-right:auto; width: 70%; height: 250px; padding-top: 5px;">
+            </div>
+            <div class="card-body">
+                <p><strong>Urology</strong></p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. deleniti perferendis illum itaque et culpa voluptatem corporis ratione suscipit in quae, eligendi velit adipisci rem quasi?</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+<!-- -------------------------------------Medical Services------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------ --> 
+
+<div class="container-fluid mt-4" id="team">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center text-primary mt-4" id="heading">Our Team</h3>
+        </div>
+    </div>
+
+    <div class="row owl-carousel owl-theme">
+        <div class="col-md-3">
+            <div class="card shadow text-center items">
+                <div class="card-body profile-card">
+                    <img class="img-thumbnail rounded-circle border-0" src="{% static 'images/doc6.jpeg' %}" alt="" style="width: 200px; height: 180px;"> 
+                    <h4 class="card-title" style="font-size: 15px;">Dr.Abc</h4>
+                    <h6 class="card-subtitle">Senior Consultant Surgeon</h6>
+                    <p class="card-text">MBBS, MS Orthopaedic</p>
+                    <!-- <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow text-center items">
+                <div class="card-body profile-card">
+                    <img class="img-thumbnail rounded-circle border-0" src="{% static 'images/doc7.jpeg' %}" alt="" style="width: 200px; height: 180px;">
+                    <h4 class="card-title" style="font-size: 15px;">Dr.Xyz</h4>
+                    <h6 class="card-subtitle">Gynaecology and Obstetrician</h6>
+                    <p class="card-text">MBBS, MD (Internal Medicine)</p>
+                    <!-- <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-twitter"></i></a> 
+                    <a href="#" class="card-link"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow text-center items">
+                <div class="card-body profile-card">
+                    <img class="img-thumbnail rounded-circle border-0" src="{% static 'images/doc6.jpeg' %}" alt="" style="width: 200px; height: 180px;">
+                    <h4 class="card-title" style="font-size: 15px;">Dr.Xyz</h4>
+                    <h6 class="card-subtitle">Consultant Physician</h6>
+                    <p class="card-text">MBBS, MD (NMC)</p>
+                    <!-- <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-twitter"></i></a> 
+                    <a href="#" class="card-link"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow text-center items">
+                <div class="card-body profile-card">
+                    <img class="img-thumbnail rounded-circle border-0" src="{% static 'images/doc7.jpeg' %}" alt="" style="width: 200px; height: 180px;"> 
+                    <h4 class="card-title" style="font-size: 15px;">Dr.Xyz</h4>
+                    <h6 class="card-subtitle">Consultant Physician</h6>
+                    <p class="card-text">MBBS, MD (Internal Medicine)</p>
+                    <!-- <a href="#" class="card-link"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-twitter"></i></a> 
+                    <a href="#" class="card-link"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="card-link"><i class="fa fa-linkedin"></i></a> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> 
+{% endblock content %} 

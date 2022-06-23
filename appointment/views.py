@@ -7,7 +7,7 @@ from .models import Doctor, Patient, Appointment
 
 # Create your views here.
 def home(request):
-    return render(request, 'appointment/home.html') 
+    return render(request, 'appointment/home_old.html') 
 
 
 def about(request):
