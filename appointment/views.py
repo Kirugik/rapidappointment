@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages 
 from .models import Doctor, Patient, Appointment
+from django.core.mail import send_mail 
 
 # Create your views here.
 def home(request):
@@ -144,8 +145,8 @@ def add_doctor(request):
 
         try:
             Doctor.objects.create(
-                first_name = fname, 
-                last_name = lname,
+                first_Name = fname, 
+                last_Name = lname,
                 gender = gender,
                 department = department,
                 specialty = specialty,
@@ -185,8 +186,8 @@ def remove_doctor(request, doc_id):
 def add_patient(request):
     error = ""
     
-    if not request.user.is_staff:
-        return redirect('admin-login')
+    # if not request.user.is_staff:
+    #     return redirect('admin-login')
 
     if request.method == 'POST':
         fname = request.POST['first_name'] 
@@ -252,9 +253,9 @@ def request_appointment(request):
     if request.method == 'POST':
         doctor_name = request.POST['doctor_name'] 
         patient_name = request.POST['patient_name'] 
-        symptoms = request.POST['symptoms'] 
         date = request.POST['date'] 
         time = request.POST['time'] 
+        message = request.POST['message'] 
         
         doctor = Doctor.objects.filter(first_Name=doctor_name).first()
         patient = Patient.objects.filter(first_name=patient_name).first()
@@ -262,10 +263,10 @@ def request_appointment(request):
         try:
             Appointment.objects.create( 
                 doctor = doctor,
-                patient = patient,
-                symptoms = symptoms,
+                patient = patient, 
                 date = date,
                 time = time,
+                message = message, 
             )
             error = "no"  
         
@@ -274,6 +275,7 @@ def request_appointment(request):
 
     context = {'doctors': doctors, 'patients': patients, 'error': error} 
     return render(request, 'appointment/request_appointment.html', context) 
+
 
 
 
@@ -286,6 +288,7 @@ def appointments(request):
     return render(request, 'appointment/appointments.html', context)
 
 
+
 def remove_appointment(request, appointment_id):
     if not request.user.is_staff:
         return redirect('admin-login')
@@ -293,4 +296,60 @@ def remove_appointment(request, appointment_id):
     appointment.delete()
 
     return redirect('appointments') 
-    
+
+
+
+
+# def test_request_appointment(request): 
+#     error = "" 
+
+#     doctors = Doctor.objects.all() 
+
+#     if request.method == 'POST':
+#         patient_name = request.POST['patient-name'] 
+#         patient_phone = request.POST['patient-phone']
+#         patient_email = request.POST['patient-email'] 
+#         patient_address = request.POST['patient-address']
+#         preferred_date = request.POST['preferred-date'] 
+#         preferred_time = request.POST['preferred-time']
+#         doctor = request.POST['doctor']  
+#         appointment_message = request.POST['appointment-message'] 
+
+
+#         doctor = Doctor.objects.filter(first_Name=doctor).first()
+
+#         try:
+#             Appointment.objects.create( 
+#                 patient_name = patient_name,
+#                 patient_phone = patient_phone,
+#                 patient_email = patient_email,
+#                 patient_address = patient_address,
+#                 preferred_date = preferred_date,
+#                 preferred_time = preferred_time,
+#                 doctor_name = doctor,
+#                 appointment_message = appointment_message,
+#             )
+#             error = "no"  
+
+#         except:
+#             error = "yes"    
+
+        # sending email to patients
+        
+        # appointment = "Name: " + patient_name + "Phone Number: " + patient_phone + "Email: " + patient_email + "Address: " + patient_address + "Appointment Date: " + preferred_date + "Appointment Time: " + preferred_time + "Doctor: " + doctor_name + "Message: " + appointment_message
+
+        # send_mail(
+        #     'Appointment Request', #Subject  
+        #     appointment, #Message
+        #     patient_email, #From email
+        #     ['kirugik79@gmail.com'], #To email
+        # )
+        
+
+
+    #     context = {'patient_name': patient_name, 'patient_phone': patient_phone, 'patient_email': patient_email, 'patient_address': patient_address, 'preferred_date': preferred_date, 'preferred_time': preferred_time, 'doctor': doctor, 'appointment_message': appointment_message}
+    #     return render(request, 'appointment/home.html', context)
+
+    # else:
+    #     context = {'doctors': doctors, 'error': error, }
+    #     return render(request, 'appointment/request_appointment.html', context)

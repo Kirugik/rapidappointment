@@ -36,6 +36,17 @@
                 </li>
                 
                 {% if user.is_authenticated %}
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Patients</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" style="color: #E30B5D;">Patients</a></li>
+                        <li><a class="dropdown-item" href="#" style="color: #E30B5D;">Add Patient</a></li>
+                    </ul> 
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'add-patient' %}">Create an Account</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'request-appointment' %}">Book an Appointment</a>
                 </li>
@@ -75,12 +86,16 @@
                         <li><a class="dropdown-item" href="{% url 'add-doctor' %}" style="color: #E30B5D;">Add New Doctor</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Patients</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'patients' %}" style="color: #E30B5D;">Patients</a></li>
-                        <li><a class="dropdown-item" href="{% url 'add-patient' %}" style="color: #E30B5D;">Add Patient</a></li>
-                    </ul>
+                        <li><a class="dropdown-item" href="#" style="color: #E30B5D;">Patients</a></li>
+                        <li><a class="dropdown-item" href="#" style="color: #E30B5D;">Add Patient</a></li>
+                    </ul> 
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'admin-logout' %}">Patients</a> 
                 </li>
 
                 <li class="nav-item">

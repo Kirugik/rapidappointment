@@ -25,4 +25,6 @@ urlpatterns = [
     path('request-appointment/', views.request_appointment, name='request-appointment'), 
     path('appointments/', views.appointments, name='appointments'), 
     path('remove-appointment/<int:appointment_id>', views.remove_appointment, name='remove-appointment'), 
+
+    # path('test/', views.test_request_appointment, name='test'),
 ] 

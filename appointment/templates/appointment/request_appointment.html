@@ -22,11 +22,12 @@
     <div class="form-wrapper" style="display: block; text-align: center;">
         <h5 class="text-center mt-5">Book An Appointment</h5>
         <form method="POST" action="" enctype="multipart/form-data" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left;"> 
-            {% csrf_token %}
+            {% csrf_token %} 
     
             <div class="doc-name" style="width: 400px; margin-top: 15px;">
                 <label for="doctor_name">Doctor Name</label>
                 <select name="doctor_name" class="form-control">
+                    <option value="Choose a doctor">Choose a doctor</option>
                     {% for doctor in doctors %}
                     <option value="{{doctor.first_Name}}">{{doctor.first_Name}}</option>
                     {% endfor %}
@@ -36,15 +37,11 @@
             <div class="pat-name" style="width: 400px; margin-top: 15px;"> 
                 <label for="patient_name">Patient Name</label> 
                 <select name="patient_name" class="form-control">
+                    <option value="Select your name">Select your name</option> 
                     {% for patient in patients %}
                     <option value="{{patient.first_name}}">{{patient.first_name}}</option>
                     {% endfor %}
                 </select>
-            </div>
-    
-            <div class="symptoms-input" style="width: 400px; margin-top: 15px;">
-                <label for="symptoms">Symptoms</label>
-                <input type="text" class="form-control" name="symptoms">
             </div>
     
             <div class="date-input" style="width: 400px; margin-top: 15px;">
@@ -56,11 +53,18 @@
                 <label for="time">Time</label>
                 <input type="time" class="form-control" name="time">
             </div>
+
+            <div class="appointment-message" style="width: 400px; margin-top: 15px;">
+                <label for="message">Message</label> 
+                <input type="text" class="form-control" name="message"> 
+            </div>
     
             <div class="book-btn" style="width: 400px; margin-top: 15px;">
                 <input type="submit" value="Submit" class="form-control btn" style="background-color: #0da2ff; color: #ffffff;">
             </div>
         </form>
+
+
     </div>
 </div>
 {% endblock content %}

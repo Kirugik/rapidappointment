@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'rapidappointment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rapid',
+        'NAME': 'rapidappoint', 
         'USER': 'robert',
         'PASSWORD': 'Kirugik@79',
     }

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %} 
+
+{% if error is "no" %} 
+<script>
+    alert("Added successfully!");
+    window.location = "{% url 'appointments' %}";  
+</script>
+{% endif %}
+
+{% if error is "yes" %}
+<script>
+    alert("Invalid Login. Try Again."); 
+</script>
+{% endif %} 
+
+
+<div class="container" style="margin-top: 150px">
+    <div class="form-wrapper" style="display: block; text-align: center;">
+        <h5 class="text-center mt-5">Book An Appointment</h5>
+        <div class="appointment-form">
+            <form action="{% url 'appointments' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <input type="text" name="patient-name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <input type="text" name="patient-phone" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <input type="email" name="patient-email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <input type="text" name="patient-address" class="form-control" placeholder="Physical Address" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <select name="preferred-date" class="form-control">
+                                <option value="Select preferred date">Select preferred date</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thusday">Thusday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option> 
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <select name="preferred-time" class="form-control">
+                                <option value="Select preferred time">Select preferred time</option>
+                                <option value="7:00 AM - 9:00 AM">7:00 AM - 9:00 AM</option>
+                                <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                                <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                                <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <select name="doctor" class="form-control">
+                                <option value="Choose your doctor">Choose your doctor</option>
+                                {% for doctor in doctors %}
+                                <option value="{{doctor.first_Name}}">{{doctor.first_Name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div>
+                            <div class="form-group mb-3">
+                                <textarea type="text" name="appointment-message" class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">Book Appointment</button> 
+                    </div>
+
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
