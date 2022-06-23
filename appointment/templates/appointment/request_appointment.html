@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %} 
+
+{% if error is "no" %} 
+<script>
+    alert("Added successfully!");
+    window.location = "{% url 'appointments' %}";  
+</script>
+{% endif %}
+
+{% if error is "yes" %}
+<script>
+    alert("Invalid Login. Try Again."); 
+</script>
+{% endif %} 
+
+
+<div class="container" style="margin-top: 150px">
+    <div class="form-wrapper" style="display: block; text-align: center;">
+        <h5 class="text-center mt-5">Book An Appointment</h5>
+        <form method="POST" action="" enctype="multipart/form-data" style="display: inline-block; margin-left: auto; margin-right: auto; text-align: left;"> 
+            {% csrf_token %}
+    
+            <div class="doc-name" style="width: 400px; margin-top: 15px;">
+                <label for="doctor-name">Doctor Name</label>
+                <select name="doctor_name" class="form-control">
+                    {% for doctor in doctors %}
+                    <option value="{{doctor.first_name}} {{doctor.last_name}}">{{doctor.first_name}} {{doctor.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <div class="pat-name" style="width: 400px; margin-top: 15px;">
+                <label for="patient-name">Patient Name</label>
+                <select name="patient_name" class="form-control">
+                    {% for patient in patients %}
+                    <option value="{{patient.first_name}} {{patient.last_name}}">{{patient.first_name}} {{patient.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <div class="symptoms-input" style="width: 400px; margin-top: 15px;">
+                <label for="symptoms">Symptoms</label>
+                <textarea type="text" class="form-control" name="symptoms"></textarea>
+            </div>
+    
+            <div class="date-input" style="width: 400px; margin-top: 15px;">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" name="date">
+            </div>
+    
+            <div class="time-input" style="width: 400px; margin-top: 15px;"> 
+                <label for="time">Time</label>
+                <input type="time" class="form-control" name="time">
+            </div>
+    
+            <div class="book-btn" style="width: 400px; margin-top: 15px;">
+                <input type="submit" value="Submit" class="form-control btn" style="background-color: #0da2ff; color: #ffffff;">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

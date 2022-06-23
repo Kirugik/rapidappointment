@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+{% include 'navbar.html' %}  
+
+<div class="container mt-4">
+    <div class="table-wrapper" style="margin-top: 150px;">
+        <h5 class="text-center mt-4">Our Doctors</h5>
+        <table id="example" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Specialty</th>
+                    <th>Phone</th>
+                    <th>Address</th> 
+                </tr>
+            </thead>
+            <tbody>
+            
+                {% for doctor in doctors %}
+                <tr>
+                    <td>{{doctor.id}}</td>
+                    <td>{{doctor.first_name}}</td>
+                    <td>{{doctor.last_name}}</td>
+                    <td>{{doctor.gender}}</td>
+                    <td>{{doctor.department}}</td>
+                    <td>{{doctor.specialty}}</td>
+                    <td>{{doctor.phone}}</td> 
+                    <td>{{doctor.address}}</td>
+                    <td><a href="{% url 'remove-doctor' doctor.id %}" onclick="return confirm('Are you sure you want to delete this doctor?')" class="btn btn-danger">Delete</a></td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

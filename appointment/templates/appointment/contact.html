@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %}  
+<div class="container mt-4">
+    <div class="contact-wrapper" style="margin-top: 150px;">
+        <h3 class="text-center">Contact Us</h3>  
+        <div class="row mt-3 text-center">
+            <div class="col-md-3 col-sm-6">
+                <h5>Contact</h5>
+                <p class="text-danger"><a href="tel:+254710471328" style="color: #000000; text-decoration: none;">+254710471328</a></p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>Send Email</h5>
+                <p><a href="mailto:xyz@gmail.com" style="color: #000000; text-decoration: none;">xyz@gmail.com</a></p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>Physical Address</h5>
+                <p><a href="http://maps.google.com/maps?q=kasarani" style="color: #000000; text-decoration: none;">Nairobi, Kasarani</a></p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>Working Hours</h5>
+                <p>8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} 
