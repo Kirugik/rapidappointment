@@ -8,8 +8,8 @@ GENDER = [
 
 # Create your models here.
 class Doctor(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    first_Name = models.CharField(max_length=100)
+    last_Name = models.CharField(max_length=100, null=True) 
     gender = models.CharField(choices=GENDER, max_length=50, null=True, blank=True) 
     department = models.CharField(max_length=50)
     specialty = models.CharField(max_length=50)
@@ -17,7 +17,7 @@ class Doctor(models.Model):
     address = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.first_name 
+        return self.first_Name  
     
 
 
@@ -41,7 +41,7 @@ class Appointment(models.Model):
     symptoms = models.TextField() 
     date = models.DateField()
     time = models.TimeField() 
-    approved = models.BooleanField('Approved', default=False)   
+    # approved = models.BooleanField('Approved', default=False)   
     date_sent = models.DateField(auto_now_add=True)
     date_approved = models.DateField(auto_now_add=False, null=True, blank=True) 
 

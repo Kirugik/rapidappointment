@@ -256,13 +256,13 @@ def request_appointment(request):
         date = request.POST['date'] 
         time = request.POST['time'] 
         
-        # doctor = Doctor.objects.filter(name=doctor_name).first()
-        # patient = Patient.objects.filter(name=patient_name).first()
+        doctor = Doctor.objects.filter(first_Name=doctor_name).first()
+        patient = Patient.objects.filter(first_name=patient_name).first()
 
         try:
             Appointment.objects.create( 
-                doctor_name = doctor_name,
-                patient_name = patient_name,
+                doctor = doctor,
+                patient = patient,
                 symptoms = symptoms,
                 date = date,
                 time = time,
