@@ -4,7 +4,8 @@
 {% block content %}
 {% include 'navbar.html' %}  
 
-<div class="container mt-4">
+<div class="container mt-4" style="min-height:100vh; display:flex; flex-direction:column; 
+justify-content:space-between;">
     <div class="info-wrapper" style="margin-top: 150px;">
         <h5 class="text-center mt-4">Active Appointments</h5>
         <table id="example" class="table table-hover">
@@ -57,4 +58,5 @@
         </table>
     </div>
 </div>
+{% include 'footer.html' %}   
 {% endblock content %}
